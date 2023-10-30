@@ -4,11 +4,11 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter';
 import {
-  loadContacts,
+  fetchContacts,
   addContact,
   deleteContact,
   setFilter,
-} from './redux/contactsSlice';
+} from './redux/actions';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ export const App = () => {
   const filter = useSelector(state => state.filter);
 
   useEffect(() => {
-    dispatch(loadContacts());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   const handleAddContact = newContact => {
