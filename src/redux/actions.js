@@ -1,4 +1,5 @@
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
+import PropTypes from 'prop-types';
 
 export const setFilter = createAction('filter/set');
 
@@ -52,3 +53,18 @@ export const deleteContact = createAsyncThunk(
     return contactId;
   }
 );
+
+setFilter.propTypes = {
+  payload: PropTypes.string.isRequired,
+};
+
+addContact.propTypes = {
+  payload: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+deleteContact.propTypes = {
+  payload: PropTypes.string.isRequired,
+};

@@ -8,7 +8,7 @@ import {
   addContact,
   deleteContact,
   setFilter,
-} from './redux/actions';
+} from '../redux/actions';
 
 export const App = () => {
   const dispatch = useDispatch();
